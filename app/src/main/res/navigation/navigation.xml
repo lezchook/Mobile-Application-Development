@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="ru.asselinux.banknotestest.ui.SplashFragment"
+        android:label="Hello"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_LoginForm"
+            app:destination="@id/LoginForm"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="ru.asselinux.banknotestest.ui.StartFragment"
+        android:label="Choose operation"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_get_cash_fragment"
+            app:destination="@id/getCashFragment" />
+        <action
+            android:id="@+id/action_get_balance"
+            app:destination="@id/balanceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/getCashFragment"
+        android:name="ru.asselinux.banknotestest.ui.GetCashFragment"
+        android:label="Get cash"
+        tools:layout="@layout/fragment_choose_currency">
+        <action
+            android:id="@+id/action_getCashFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/balanceFragment"
+        android:name="ru.asselinux.banknotestest.ui.BalanceFragment"
+        android:label="Get balance"
+        tools:layout="@layout/fragment_balance" />
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="ru.asselinux.banknotestest.ui.DetailsFragment"
+        android:label="Get money"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="cash"
+            app:argType="ru.asselinux.banknotestest.data.Banknote" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="ru.asselinux.banknotestest.ui.dialog.ProgressDialog"
+        android:label="Loading"
+        tools:layout="@layout/progress_dialog" />
+    <fragment
+        android:id="@+id/LoginForm"
+        android:name="ru.asselinux.banknotestest.ui.LoginForm"
+        android:label="LoginForm"
+        tools:layout="@layout/login_form" >
+        <action
+            android:id="@+id/action_LoginForm"
+            app:destination="@id/startFragment" />
+    </fragment>
+
+
+</navigation>
